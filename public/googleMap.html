@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+地圖
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href={% static '/css/google.css'%}>
+{% endblock %}
+{% block body %}
+    <div class="container">
+
+        <div class="row">
+            <input id="pac-input" class="controls" type="text" placeholder="搜尋">
+            <div id="map"></div>
+
+            <hr>
+
+            <div class="row gy-1" id="button">
+                <div class="row">
+                    <form method="post" action="">{% csrf_token %}
+                        <input type="text" maxlength="16" name="name" placeholder="請輸入名稱" onfocus="this.placeholder=''" onblur="this.placeholder='請輸名稱'" value="{{ name }}">
+                        <input type="submit" class="btn btn-secondary" value="確認" onclick="get_xy()">
+                        <input type="hidden" id="x" name="x">
+                        <input type="hidden" id="y" name="y">
+                    </form>
+                </div>
+                <div class="row gy-1">
+                    <button class="col-12 col-lg-1 btn btn-secondary" onclick="getLocation()">定位位置</button>
+                    &nbsp
+                    <button class="col-12 col-lg-1 btn btn-secondary" onclick="resetLocation()">重置位置</button>
+                </div>
+                <p style="height: 20px" id="coordinate"></p>
+            </div>
+        </div>
+    </div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxN-7KlK1bl2ebScPfYyax9QBpOU9bp-c&callback=initMap&libraries=places" defer></script>
+	<script src={% static '/js/google_map.js'%}></script>
+{% endblock %}
+{% block script %}
+    <script>
+    if ("{{ returnData.success }}"){
+        window.alert("{{ returnData.msg }}");
+    }
+
+    </script>
+{% endblock %}

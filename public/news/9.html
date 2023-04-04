@@ -1,0 +1,15 @@
+{%  extends 'news/base.html' %}
+{% block title %}
+地圖圖標更新
+{% endblock %}
+{% block body %}
+    <p>地圖上的標記現在會以空氣品質(AQL)數值來區分顏色</p>
+    <ul>
+        <li>AQL 大於等於 <code>0</code> 且小於 <code>15.5</code> 將顯示為 綠色</li>
+        <li>AQL 大於等於 <code>15.5</code> 且小於 <code>35.4</code> 將顯示為 黃色</li>
+        <li>AQL 大於等於 <code>35.4</code> 且小於 <code>54.4</code> 將顯示為 橘色</li>
+        <li>AQL 大於等於 <code>54.4</code> 且小於 <code>150.4</code> 將顯示為 紅色</li>
+        <li>AQL 大於等於 <code>150.4</code> 將顯示為 紫色</li>
+    </ul>
+{% endblock %}
+

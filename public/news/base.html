@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>{% block title %}{% endblock %}</h1>
+{#{{ new.time.year }}/{{ new.time.month }}/{{ new.time.day }} {{ new.time.hour }}:{{ new.time.second }}#}
+{{ new.time }}
+<hr>
+{% block body %}
+
+{% endblock %}
+</body>
+</html>

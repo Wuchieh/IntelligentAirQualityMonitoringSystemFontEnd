@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <script src="{% static '/js/jquery.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+
+            function response(data) {
+                if (data["status"] === "success" && data["type"] === "posDel") {
+                    $("#pos option[value='" + $("#pos").val() + "']").remove();
+                    if ($('#pos').find('option:selected').text() == '') {
+                        $('#selectPos').remove();
+                    }
+                }
+                alert(data["msg"]);
+            }
+
+            $("#posSubmit").click(function () {
+                $.post("{% url 'line:setting' %}",
+                    {
+                        type: "posSetRange",
+                        pos: $("#pos").val(),
+                        range: $("#range").val(),
+                    }, response);
+            });
+
+            $("#delSubmit").click(function () {
+                $.post("{% url 'line:setting' %}",
+                    {
+                        type: "posDel",
+                        pos: $("#pos").val(),
+                    }, response);
+            });
+
+            $("#timeSubmit").click(function () {
+                $.post("{% url 'line:setting' %}",
+                    {
+                        type: "setTime",
+                        time: $("#time").val(),
+                    }, response);
+            });
+
+        });
+    </script>
+{% endblock %}
+{% block title %}
+    設定
+{% endblock %}
+
+{% block body %}
+    {% csrf_token %}
+    <div class="container mb-5">
+        <div class="row">
+            <h1 class="mt-5">設定 <small>Settings</small></h1>
+        </div>
+        <hr>
+        {% if positions %}
+            <div class="row gy-1" id="selectPos">
+                {#                <p>選擇座標</p>#}
+                <p>Select Center Point</p>
+                <select class="col-12 col-lg-2" id="pos">
+                    {% for i in positions %}
+                        <option value={{ i.id }}>{{ i.name }}</option>
+                    {% endfor %}
+                </select>
+                {#                <p>選取你要定位的距離(100公尺到500公尺)</p>#}
+                <p>Select positioning distance (100 to 500 meters)</p>
+                <select class="col-12 col-lg-2" id="range">
+{#                    <option value="100">100公尺</option>#}
+{#                    <option value="200">200公尺</option>#}
+{#                    <option value="500">500公尺</option>#}
+                    <option value="100">100 meters</option>
+                    <option value="200">200 meters</option>
+                    <option value="500">500 meters</option>
+                </select>
+                <div class="row gy-1">
+{#                    <input class="col-12 col-lg-1 mx-lg-1 btn btn-primary" id="posSubmit" type="submit" value="確認">#}
+{#                    <input class="col-12 col-lg-1 btn btn-danger" id="delSubmit" type="submit" value="刪除">#}
+                    <input class="col-12 col-lg-1 mx-lg-1 btn btn-primary" id="posSubmit" type="submit" value="Confirm">
+                    <input class="col-12 col-lg-1 btn btn-danger" id="delSubmit" type="submit" value="Delete">
+                </div>
+                <div class="row gy-2">
+                    <hr>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="row">
+            <p>輸入需要隔多久通知一次</p>
+            <select class="col-12 col-lg-2" id="time">
+                {% for i in timeRange %}
+                    <option value="{{ i }}" {% if account.settime == i %} selected="selected" {% endif %} >
+                        {% if i == 0 %}
+                            無通知
+                        {% else %}
+                            {{ i }} 小時
+                        {% endif %} </option>
+                {% endfor %}
+
+                {#                <option value="0" {% if account.settime == 0 %} selected="selected" {% endif %}>無通知</option>#}
+                {#                <option value="1" {% if account.settime == 1 %} selected="selected" {% endif %}>1小時</option>#}
+                {#                <option value="2" {% if account.settime == 2 %} selected="selected" {% endif %}>2小時</option>#}
+                {#                <option value="4" {% if account.settime == 4 %} selected="selected" {% endif %}>4小時</option>#}
+                {#                <option value="8" {% if account.settime == 8 %} selected="selected" {% endif %}>8小時</option>#}
+                {#                <option value="12" {% if account.settime == 12 %} selected="selected" {% endif %}>12小時</option>#}
+                {#                <option value="24" {% if account.settime == 24 %} selected="selected" {% endif %}>24小時</option>#}
+            </select>
+            <div class="row gy-1">
+                <input class="col-12 col-lg-1 mx-lg-1 btn btn-success" id="timeSubmit" type="submit" value="確認"/>
+            </div>
+        </div>
+    </div>
+{% endblock %}
