@@ -16,7 +16,7 @@ English | [繁體中文](README_tw.md)
 - Vue I18n
 - Axios
 ## Require
-- Web 瀏覽器
+- Web Browser
 ## Function
 - Mark the location of the monitoring station on the map
 - Display air quality data from monitoring stations
