@@ -7,7 +7,9 @@
       <div class="row gy-1" id="button">
         <div>
           <input type="text" maxLength="16" :placeholder="$t('plsEnterName')" v-model="setName" class="me-2">
-          <button type="button" class="btn btn-secondary" @click="createNewLocation" :disabled="apiStatus">{{ $t('confirm') }}</button>
+          <button type="button" class="btn btn-secondary" @click="createNewLocation" :disabled="apiStatus">
+            {{ $t('confirm') }}
+          </button>
         </div>
         <div class="gy-1 mb-5 d-flex">
           <button class="btn btn-secondary mx-1" @click="getGPSLocation">{{ $t("positioning") }}</button>
@@ -184,7 +186,7 @@ const initMap = async () => {
             pinImage = pinImages[2];
           } else if (54.4 <= parseFloat(item["Aqi"]) && parseFloat(item["Aqi"]) < 150.4) {
             pinImage = pinImages[3];
-          } else if (parseFloat(item["Aqi"]) >= 35.4) {
+          } else if (parseFloat(item["Aqi"]) >= 150.4) {
             pinImage = pinImages[4];
           }
           new states.google.maps.Marker({
@@ -251,7 +253,7 @@ const initMap = async () => {
 
     states.inputX = lat;
     states.inputY = lng;
-        if (infoWindow.value) {
+    if (infoWindow.value) {
       infoWindow.value.close();
     }
 

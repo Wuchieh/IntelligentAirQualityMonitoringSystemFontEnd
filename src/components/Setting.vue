@@ -90,7 +90,6 @@ import {onMounted, ref, watch} from "vue";
 import axios from "axios";
 import Loading from "./Loding.vue";
 import Alert from "./Alert.vue";
-import {f} from "../../dist/assets/vue-i18n-e58f2b49.js";
 
 const props = defineProps(["login"])
 const emits = defineEmits(["title"]);
