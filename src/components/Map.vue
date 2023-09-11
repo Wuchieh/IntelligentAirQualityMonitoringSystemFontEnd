@@ -1,5 +1,5 @@
 <template>
-  <Alert :alert-message="alertMsg" :alert-type="alertType"/>
+  <Alert :alert-message="alertMsg" :alert-type="alertType" />
   <div class="container" v-if="login">
     <div class="row">
       <input id="search-box" class="controls" type="text" :placeholder="$t('search')">
@@ -22,12 +22,13 @@
 </template>
 
 <script setup>
-import {Loader} from "@googlemaps/js-api-loader";
-import {onMounted, reactive, ref} from "vue";
+import { Loader } from "@googlemaps/js-api-loader";
+import { onMounted, reactive, ref } from "vue";
 import axios from "axios";
 import Alert from "./Alert.vue";
 
-const myLatlng = {lat: 24.95362, lng: 121.225595};
+const myLatlng = { lat: 25.039049, lng: 121.568470 };
+//const myLatlng = { lat: 24.95362, lng: 121.225595 };
 const props = defineProps(["login"])
 const emits = defineEmits(["title"]);
 const infoWindow = ref(null)
@@ -145,7 +146,7 @@ const initMap = async () => {
   const pinColors = ["8DFE05", "E6FF08", "F08650", "EB3324", "B630FF"];
   const pinImages = [];
   const loader = new Loader({
-    apiKey: "AIzaSyCxN-7KlK1bl2ebScPfYyax9QBpOU9bp-c",
+    apiKey: "AIzaSyBhb_bMuV9NJqV5PFqLv9hqfUOO1JqNamg",
     version: "weekly",
     libraries: ["places"],
     language: "zh-TW",
@@ -173,6 +174,32 @@ const initMap = async () => {
       new states.google.maps.Point(12, 35)
   );
 
+  const createMarkerInfoWindow = (marker, aqi) => {
+    const status = getStatus(aqi);
+    const content = `AQI: ${aqi}<br>狀態: ${status}`;
+    const infoWindow = new states.google.maps.InfoWindow({
+      content: content,
+    });
+
+    marker.addListener("click", () => {
+      infoWindow.open(states.map, marker);
+    });
+  };
+
+  const getStatus = (avg) => {
+    if (avg >= 150.4) {
+      return "危險";
+    } else if (54.4 <= avg && avg < 150.4) {
+      return "非常不好";
+    } else if (35.4 <= avg && avg < 54.4) {
+      return "不好";
+    } else if (15.5 <= avg && avg < 35.4) {
+      return "正常";
+    } else if (0 <= avg && avg < 15.5) {
+      return "良好";
+    }
+  };
+
   axios.get('/api/aqi/search')
       .then((response) => {
         const data = response.data;
@@ -189,7 +216,7 @@ const initMap = async () => {
           } else if (parseFloat(item["Aqi"]) >= 150.4) {
             pinImage = pinImages[4];
           }
-          new states.google.maps.Marker({
+          const map_marker = new states.google.maps.Marker({
             position: {
               lat: Number(item["Location"].match(/\((.*),(.*)\)/)[1]),
               lng: Number(item["Location"].match(/\((.*),(.*)\)/)[2])
@@ -199,6 +226,7 @@ const initMap = async () => {
             icon: pinImage,
             shadow: pinShadow
           });
+          createMarkerInfoWindow(map_marker, item["Aqi"]);
         });
       })
       .catch(function (error) {
@@ -248,8 +276,8 @@ const initMap = async () => {
   });
 
 
-  states.map.addListener("click", ({latLng}) => {
-    const {lat, lng} = latLng.toJSON();
+  states.map.addListener("click", ({ latLng }) => {
+    const { lat, lng } = latLng.toJSON();
 
     states.inputX = lat;
     states.inputY = lng;
@@ -277,7 +305,6 @@ onMounted(() => {
   console.log('%c等一下！', 'color: #5865f2; padding: 10px; font-size: 66px; text-shadow: 0 0 5px #000;');
   console.log('%c如果有人叫您在這裡複製/貼上任何東西，您百分之百被騙了。', 'color: #fff; font-size: 16px; padding: 10px;');
   console.log('%c在這裡貼上任何資訊，均有可能讓惡意攻擊者存取您的 監測系統 的帳號。', 'color: #ff0000; font-size: 16px; font-weight: bold; padding: 10px;');
-
 });
 </script>
 
