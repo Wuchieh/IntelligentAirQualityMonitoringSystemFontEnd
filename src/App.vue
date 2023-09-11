@@ -40,6 +40,7 @@ function checkLogin() {
     }
     login.value = false
     if (location.pathname !== "/" &&
+        location.pathname !== "/sendmsg" &&
         location.pathname !== "/learn") {
       console.log(location.pathname)
       location.pathname = "/login.html"
@@ -63,9 +64,10 @@ watch(locale, () => {
 })
 
 onMounted(() => {
-  const meta = document.querySelector('meta[name="description"]');
-  meta.setAttribute('content', t("meta description"))
-})
+  const meta = document.querySelector('meta[name="og:description"]');
+  meta.setAttribute('content', t("meta description"));
+});
+
 </script>
 
 <style scoped>

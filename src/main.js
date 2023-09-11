@@ -8,6 +8,7 @@ import en from "./i18n/en.json"
 import Learn from "./components/Learn.vue";
 import GoogleMap from "./components/Map.vue";
 import Setting from "./components/Setting.vue";
+import sendMessage from "./components/SendMessage.vue";
 import "default-passive-events";
 
 const routes = [
@@ -16,6 +17,7 @@ const routes = [
     {path: '/map', component: GoogleMap},
     {path: '/learn', component: Learn},
     {path: '/setting', component: Setting},
+    {path: '/sendmsg', component: sendMessage},
 ]
 
 const router = createRouter({

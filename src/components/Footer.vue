@@ -1,6 +1,6 @@
 <template>
   <div class="bg-light footer">
-    <div class="container text-center py-2" id="getCurrentDate">Copyright © Company 2021 - {{ String((new Date()).getFullYear()) }}</div>
+    <div class="container text-center py-2" id="getCurrentDate">Copyright © 2021 - {{ String((new Date()).getFullYear()) }}</div>
   </div>
 </template>
 

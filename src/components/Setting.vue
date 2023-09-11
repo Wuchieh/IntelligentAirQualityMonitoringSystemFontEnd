@@ -27,21 +27,22 @@
       <h1 class="mt-5">{{ $t("setting") }}
         <small v-if="!LinkingLine" class="fs-6 ms-1 text-danger">{{ $t("notLinkLine") }}</small>
       </h1>
+
     </div>
     <hr>
     <div class="row gy-1" id="selectPos" v-if="locations">
-      <p class="ps-0">{{ $t("selectLocation") }}</p>
+      <p class="ps-3">{{ $t("selectLocation") }}</p>
 
-      <div class="gy-1">
-        <select class="col-12 col-lg-2" id="pos" v-model="locationSelect">
+      <div class="col-12 col-md-6 col-lg-3">
+        <select class="form-select" id="pos" v-model="locationSelect">
           <option v-for="(i,k) in locations" :value="k">{{ i["NiceName"] }}</option>
         </select>
       </div>
 
-      <p class="ps-0">{{ $t("setLocationRangeLabel") }}</p>
+      <p class="ps-3" style="margin-top: 20px;">{{ $t("setLocationRangeLabel") }}</p>
 
-      <div class="gy-1">
-        <select class="col-12 col-lg-2" id="range" v-model="rangeSelect">
+      <div class="col-12 col-md-6 col-lg-3">
+        <select class="form-select" id="range" v-model="rangeSelect">
           <option :value=100>100 {{ $t("meters") }}</option>
           <option :value=200>200 {{ $t("meters") }}</option>
           <option :value=500>500 {{ $t("meters") }}</option>
@@ -66,9 +67,9 @@
     </div>
 
     <div class="row">
-      <p class="ps-0">{{ $t("selectNotificationRange") }}</p>
-      <div class="gy-1">
-        <select class="col-12 col-lg-2" id="time" v-model="NoticeInterval">
+      <p class="ps-3">{{ $t("selectNotificationRange") }}</p>
+      <div class="col-12 col-md-6 col-lg-3">
+        <select class="form-select" id="time" v-model="NoticeInterval">
           <option v-for="i in [0,1,2,4,8,12,24]" :value=i>
             {{
               i === 0 ? $t('noNotification') :
@@ -240,6 +241,10 @@ onMounted(() => {
   } else if (props["login"] === false) {
     location.pathname = "/login.html"
   }
+  console.log("⡆⣐⢕⢕⢕⢕⢕⢕⢕⢕⠅⢗⢕⢕⢕⢕⢕⢕⢕⠕⠕⢕⢕⢕⢕⢕⢕⢕⢕⢕\n⢐⢕⢕⢕⢕⢕⣕⢕⢕⠕⠁⢕⢕⢕⢕⢕⢕⢕⢕⠅⡄⢕⢕⢕⢕⢕⢕⢕⢕⢕\n⢕⢕⢕⢕⢕⠅⢗⢕⠕⣠⠄⣗⢕⢕⠕⢕⢕⢕⠕⢠⣿⠐⢕⢕⢕⠑⢕⢕⠵⢕\n⢕⢕⢕⢕⠁⢜⠕⢁⣴⣿⡇⢓⢕⢵⢐⢕⢕⠕⢁⣾⢿⣧⠑⢕⢕⠄⢑⢕⠅⢕\n⢕⢕⠵⢁⠔⢁⣤⣤⣶⣶⣶⡐⣕⢽⠐⢕⠕⣡⣾⣶⣶⣶⣤⡁⢓⢕⠄⢑⢅⢑\n⠍⣧⠄⣶⣾⣿⣿⣿⣿⣿⣿⣷⣔⢕⢄⢡⣾⣿⣿⣿⣿⣿⣿⣿⣦⡑⢕⢤⠱⢐\n⢠⢕⠅⣾⣿⠋⢿⣿⣿⣿⠉⣿⣿⣷⣦⣶⣽⣿⣿⠈⣿⣿⣿⣿⠏⢹⣷⣷⡅⢐\n⣔⢕⢥⢻⣿⡀⠈⠛⠛⠁⢠⣿⣿⣿⣿⣿⣿⣿⣿⡀⠈⠛⠛⠁⠄⣼⣿⣿⡇⢔\n⢕⢕⢽⢸⢟⢟⢖⢖⢤⣶⡟⢻⣿⡿⠻⣿⣿⡟⢀⣿⣦⢤⢤⢔⢞⢿⢿⣿⠁⢕\n⢕⢕⠅⣐⢕⢕⢕⢕⢕⣿⣿⡄⠛⢀⣦⠈⠛⢁⣼⣿⢗⢕⢕⢕⢕⢕⢕⡏⣘⢕\n⢕⢕⠅⢓⣕⣕⣕⣕⣵⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣷⣕⢕⢕⢕⢕⡵⢀⢕⢕\n⢑⢕⠃⡈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢃⢕⢕⢕\n⣆⢕⠄⢱⣄⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢁⢕⢕⠕⢁\n⣿⣦⡀⣿⣿⣷⣶⣬⣍⣛⣛⣛⡛⠿⠿⠿⠛⠛⢛⣛⣉⣭⣤⣂⢜⠕⢑⣡⣴⣿\n")
+  console.log('%c等一下！', 'color: #5865f2; padding: 10px; font-size: 66px; text-shadow: 0 0 5px #000;');
+  console.log('%c如果有人叫您在這裡複製/貼上任何東西，您百分之百被騙了。', 'color: #fff; font-size: 16px; padding: 10px;');
+  console.log('%c在這裡貼上任何資訊，均有可能讓惡意攻擊者存取您的 監測系統 的帳號。', 'color: #ff0000; font-size: 16px; font-weight: bold; padding: 10px;');
 })
 
 watch(props, (v) => {
@@ -248,7 +253,3 @@ watch(props, (v) => {
   }
 })
 </script>
-
-<style lang="scss" scoped>
-
-</style>
