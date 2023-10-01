@@ -15,7 +15,6 @@ const routes = [
     {path: '/', component: Index},
     {path: '/learn', component: Learn},
     {path: '/map', component: GoogleMap},
-    {path: '/learn', component: Learn},
     {path: '/setting', component: Setting},
     {path: '/sendmsg', component: sendMessage},
 ]
