@@ -9,66 +9,66 @@
       </div>
       <div class="col-12 col-lg-4">
         <p class="fw-bold">1. {{ $t("learn2") }}</p>
-        <img class="img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1117995848303906867/login.png" alt="img">
+        <img class="img-fluid shadow rounded-4" src="https://i.imgur.com/bzOWOOt.png" alt="img">
       </div>
       <div class="col-12 col-lg-4">
         <p class="fw-bold">2. {{ $t("learn3") }}</p>
-        <img class="img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1117837825975533638/2023-06-12_232734.png" alt="img">
+        <img class="img-fluid shadow rounded-4" src="https://i.imgur.com/pGg9dEF.png" alt="img">
       </div>
       <div class="col-12 col-lg-4">
         <p class="fw-bold">3. {{ $t("learn4") }}</p>
-        <img class="img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1117838983750226010/image.png" alt="img">
+        <img class="img-fluid shadow rounded-4" src="https://i.imgur.com/levmjf6.png" alt="img">
       </div>
       <div class="col-12">
         <p class="fw-bold">4. {{ $t("learn5") }}</p>
-        <img class="img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1117998978110324887/image.png" alt="img">
+        <img class="img-fluid shadow rounded-4" src="https://i.imgur.com/wHppVtX.png" alt="img">
       </div>
       <div class="col-12">
         <p class="fw-bold">5. {{ $t("learn6") }}</p>
-        <img class="img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1118081992219697172/setLocationEX.png" alt="img">
+        <img class="img-fluid shadow rounded-4" src="https://i.imgur.com/V0u3cP0.png" alt="img">
       </div>
       <div class="col-12">
         <p class="fw-bold">6. {{ $t("learn7") }}</p>
-        <img class="img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1117999887359946822/example_location.png" alt="img">
+        <img class="img-fluid shadow rounded-4" src="https://i.imgur.com/QpxYdXM.png" alt="img">
       </div>
     </div>
     <h1 class="mt-5">{{ $t("learnTitle2") }}</h1>
     <div class="row gy-5">
       <div class="col-12 col-lg-6">
         <p class="fw-bold">1. {{ $t("learn8") }}</p>
-        <img class="img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1118003306988584970/setting_entry.png" alt="img">
+        <img class="img-fluid shadow rounded-4" src="https://i.imgur.com/3FsBRMD.png" alt="img">
       </div>
       <div class="col-12 col-lg-6">
         <p class="fw-bold">2. {{ $t("learn9") }}</p>
-        <img class="img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1118002832709267577/image.png" alt="img">
+        <img class="img-fluid shadow rounded-4" src="https://i.imgur.com/kvzSjBR.png" alt="img">
       </div>
       <div class="col-12 col-lg-6">
         <p class="fw-bold">3. {{ $t("learn10") }}</p>
         <small>{{ $t("learn10sm") }}</small>
-        <img class="img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1118020868145172490/image.png" alt="img">
+        <img class="img-fluid shadow rounded-4" src="https://i.imgur.com/Nt1exhN.png" alt="img">
       </div>
       <div class="col-12 col-lg-6">
         <p class="fw-bold">4. {{ $t("learn11") }}</p>
-        <img class="img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1118004303995621427/image.png" alt="img">
+        <img class="img-fluid shadow rounded-4" src="https://i.imgur.com/6tfLBTT.png" alt="img">
       </div>
     </div>
     <h1 class="mt-5">{{ $t("learnTitle3") }}</h1>
     <div class="row gy-5">
       <div class="col-12 col-lg-4">
         <p class="fw-bold">1. {{ $t("learn12") }}</p>
-        <img class="mt-auto img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1118007695019102228/setting.png" alt="img">
+        <img class="mt-auto img-fluid shadow rounded-4" src="https://i.imgur.com/yBJ0uYh.png" alt="img">
       </div>
       <div class="col-12 col-lg-4">
         <p class="fw-bold">2. {{ $t("learn13") }}</p>
-        <img class="mt-auto img-fluid shadow rounded-4" src="https://media.discordapp.net/attachments/842738026786717706/1118019369692311612/image.png" alt="img">
+        <img class="mt-auto img-fluid shadow rounded-4" src="https://i.imgur.com/ho8lEIR.png" alt="img">
       </div>
       <div class="col-12 col-lg-4">
         <p class="fw-bold">3. {{ $t("learn14") }}</p>
-        <img class="mt-auto img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1118019369922986056/image.png" alt="img">
+        <img class="mt-auto img-fluid shadow rounded-4" src="https://i.imgur.com/xq9MaE0.png" alt="img">
       </div>
       <div class="col-12 col-lg-4">
         <p class="fw-bold">4. {{ $t("learn15") }}</p>
-        <img class="mt-auto img-fluid shadow rounded-4" src="https://cdn.discordapp.com/attachments/842738026786717706/1118019370153680896/image.png" alt="img">
+        <img class="mt-auto img-fluid shadow rounded-4" src="https://i.imgur.com/2KUT52i.png" alt="img">
       </div>
     </div>
   </div>

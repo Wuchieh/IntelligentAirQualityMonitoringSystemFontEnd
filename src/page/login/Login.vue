@@ -29,7 +29,7 @@
 
       <LoginPage v-if="page===0"/>
       <RegisterPage v-else @RegisterEd="RegisterEd"/>
-      <p class="mt-5 mb-3 text-muted">© 2021–{{ year }}</p>
+      <p class="mt-5 mb-3 text-muted">© 2021–{{ year }} Wuchieh</p>
     </form>
   </div>
 </template>
