@@ -76,5 +76,5 @@ yarn build
 - `yarn build`：構建生產環境的應用程式並將文件輸出到 [`dist`] 目錄。
 
 ## 畫面預覽
-!indexAnnouncements_tw.png
-!Login_tw.png
+![indexAnnouncements_tw.png](imgs/indexAnnouncements_tw.png)
+![Login_tw.png](imgs/Login_tw.png)
