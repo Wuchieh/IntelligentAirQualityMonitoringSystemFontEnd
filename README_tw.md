@@ -49,17 +49,36 @@
    ```sh
    yarn install
    ```
-5. 啟動前端網站預覽模式：
-   ```sh
-   yarn dev
-   ```
+
+## 設定
+
+1. 將 `src/components/Map.vue` 中第 169 行的 `apiKey` 替換為你自己的 Google Maps JavaScript API 金鑰。
+2. 在你的 Google Cloud 專案中啟用 Maps JavaScript API 和 Places API。
+
+## 執行應用程式
+
+要啟動前端網站預覽模式，請使用以下命令：
+```sh
+yarn dev
+```
+或
+```sh
+vite
+```
+
+要構建生產環境的應用程式，請使用以下命令：
+```sh
+yarn build
+```
+這將在 [`dist`] 目錄中生成生產環境準備好的文件。然後你可以使用你偏好的網頁伺服器來提供這些文件。
 
 ### 解釋
 - `corepack enable`：啟用 Corepack，這是一個管理包管理器（如 Yarn）的工具。
 - `corepack prepare yarn@3.6.0 --activate`：準備並啟用 Yarn 版本 3.6.0。
-- `yarn install`：安裝 `package.json` 文件中列出的所有依賴項。
-- `yarn dev`：啟動前端應用程式的開發伺服器。
+- `yarn install`：安裝 [`package.json`] 文件中列出的所有依賴項。
+- `yarn dev` 或 `vite`：啟動前端應用程式的開發伺服器。
+- `yarn build`：構建生產環境的應用程式並將文件輸出到 [`dist`] 目錄。
 
 ## 畫面預覽
-![indexAnnouncements_tw.png](imgs/indexAnnouncements_tw.png)
-![Login_tw.png](imgs/Login_tw.png)
+!indexAnnouncements_tw.png
+!Login_tw.png
