@@ -227,17 +227,14 @@ const initMap = async () => {
 			google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
 				// 確保 InfoWindow 的 DOM 已經準備好
 				const iwOuter = document.querySelector('.gm-style-iw');
-				console.log(iwOuter);  // 確認是否找到正確的元素
 
 				// 使用 querySelector 查找自定義的關閉按鈕
 				const closeButton = iwOuter.querySelector(".close-button");
-				console.log(closeButton);  // 確認是否找到按鈕
 
 				// 綁定按鈕事件
 				if (closeButton) {
 					closeButton.addEventListener("click", () => {
 						infoWindow.close();
-						console.log("InfoWindow 關閉");
 					});
 				}
 			});
